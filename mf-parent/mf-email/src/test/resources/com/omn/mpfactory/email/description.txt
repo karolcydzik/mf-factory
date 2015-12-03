@@ -1,0 +1,23 @@
+c:\Users\Karol\workspaces\mpfactory01\mf-parent\mf-jsf>
+keytool -genkey -alias mydomain -keyalg RSA -keystore "c:\Program Files\Java\jdk1.7.0_45\jre\lib\security\cacerts" -keysize 2048
+Enter keystore password:
+Re-enter new password:
+What is your first and last name?
+  [Unknown]:  karolcydzik
+What is the name of your organizational unit?
+  [Unknown]:  omnia
+What is the name of your organization?
+  [Unknown]:  omnia
+What is the name of your City or Locality?
+  [Unknown]:  Preston
+What is the name of your State or Province?
+  [Unknown]:  Lancashere
+What is the two-letter country code for this unit?
+  [Unknown]:  uk
+Is CN=karolcydzik, OU=omnia, O=omnia, L=Preston, ST=Lancashere, C=uk correct?
+  [no]:  Y
+  
+  
+keytool -import -trustcacerts -keystore c:/Users/Karol/.keytool/cacerts  -storepass changeit -alias gmail-lnx_chainnedcert -file C:\Users\Karol\workspaces\mpfactory01\mf-parent\mf-hibernate\src\test\resources\com\omn\mpfactory\email\gmail1.csr
+
+$AFJVAPRG -classpath $AF_CLASSPATH -Dprotocol=imap -Ddbcfile=$FND_SECURE/$TWO_TASK.dbc -Dserver=imap.gmail.com -Dport=993 -Dssl=Y -Dtruststore=c:/Users/Karol/.keytool/cacerts -Daccount=chboar@gmail.com -Dpassword=Szafir123 -Dconnect_timeout=120 -Ddebug=Y -Dlogfile=GmailImapTest.log -DdebugMailSession=Y oracle.apps.fnd.wf.mailer.Mailer   

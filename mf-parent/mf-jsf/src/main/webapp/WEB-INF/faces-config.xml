@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee  https://svn.java.net/svn/mojarra~svn/tags/2.1.13/jsf-api/doc/web-facesconfig_2_1.xsd"
+	version="2.1">
+
+	<application>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+		<locale-config>
+			<default-locale>en</default-locale>
+			<supported-locale>pl</supported-locale>
+		</locale-config>
+		<resource-bundle>
+			<base-name>com.omn.mpfactory.jsf.messages</base-name>
+			<var>msg</var>
+		</resource-bundle>
+	</application>
+	<navigation-rule>
+		<display-name>pages/home/home.xhtml</display-name>
+		<from-view-id>/pages/home/home.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{navigator.navigateTo}</from-action>
+			<from-outcome>Secured</from-outcome>
+			<to-view-id>/pages/secure/secured.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/home/home.xhtml</display-name>
+		<from-view-id>/pages/home/home.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{navigator.navigateTo}</from-action>
+			<from-outcome>UnSecured</from-outcome>
+			<to-view-id>/pages/unsecure/unsecured.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+        <display-name>pages/secure/secured.xhtml</display-name>
+        <from-view-id>/pages/secure/secured.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{loginMgmtBean.logout}</from-action>
+            <from-outcome>loggedout</from-outcome>
+            <to-view-id>/pages/home/home.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <display-name>pages/common/login.xhtml</display-name>
+        <from-view-id>/pages/common/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{loginMgmtBean.login}</from-action>
+            <from-outcome>Secured</from-outcome>
+            <to-view-id>/pages/secure/secured.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

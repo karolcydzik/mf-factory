@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<title>Title</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:messages errorClass="errorMessage" infoClass="infoMessage" warnClass="warnMessage"></h:messages>
+		<h:panelGrid columns="2">
+			<h:outputText value="Mobile Id  :"></h:outputText>
+			<h:inputText id="mobileId" value="#{mobileBean.mobile.mobileId}" required="true" requiredMessage="Please Enter Mobile Id!"></h:inputText>
+
+			<h:outputText value="Name :"></h:outputText>
+			<h:inputText id="name" value="#{mobileBean.mobile.name}" required="true" requiredMessage="Please Enter Name!"></h:inputText>
+
+			<h:outputText value="Diagonal :"></h:outputText>
+			<h:inputText id="diagonal" value="#{mobileBean.mobile.diagonal}"></h:inputText>
+
+			<h:outputText value="Price :"></h:outputText>
+			<h:inputText id="price" value="#{mobileBean.mobile.price}"></h:inputText>
+
+			<h:commandButton type="submit" value="add" action="#{mobileController.create(mobileBean)}"></h:commandButton>
+			<h:commandButton type="reset" value="Reset"></h:commandButton>
+		</h:panelGrid>
+	</h:form>
+
+	<h:dataTable value="#{mobileBean.mobileList}" var="mobile">
+		<!--    styleClass="employeeTable" -->
+		<!--    headerClass="employeeTableHeader" -->
+		<!--    rowClasses="employeeTableOddRow,employeeTableEvenRow" -->
+
+		<h:column>
+			<f:facet name="header">mobileId</f:facet>                 
+      #{mobile.mobileId}
+   </h:column>
+		<h:column>
+			<f:facet name="header">Name</f:facet>                 
+      #{mobile.name}
+   </h:column>
+		<h:column>
+			<f:facet name="header">Diagonal</f:facet>                 
+      #{mobile.diagonal}
+   </h:column>
+		<h:column>
+			<f:facet name="header">price</f:facet>                 
+      #{mobile.price}
+   </h:column>
+		<h:column>
+			<h:outputLink id="link1" value="#">
+				<f:param name="projectId" value="123" />
+				<f:param name="userId" value="45" />
+				<h:outputText value="Current Mobile" />
+			</h:outputLink>
+		</h:column>
+	</h:dataTable>
+
+
+</h:body>
+</html>

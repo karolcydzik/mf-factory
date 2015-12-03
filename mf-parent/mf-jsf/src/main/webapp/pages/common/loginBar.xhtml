@@ -1,0 +1,58 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:richx="http://richfaces.org/richx"
+    template="/templates01/simpleHeaderBody.xhtml">
+
+    <ui:define name="loginLink">
+
+        <h:panelGroup styleClass="top-right-menu-item-link"
+            layout="block">
+            <h:form>
+                <div id="loginLink">
+                    <a4j:commandLink id="loginPanelShowlink"
+                        rendered="true" value="login"
+                        render="loginPanel"
+                        actionListener="#{userBean.reset()}"
+                        oncomplete="#{rich:component('loginPanel')}.show();" />
+                    <a4j:commandLink rendered="#{userBean.loggedIn}"
+                        action="#{authenticator.logout()}"
+                        value="#{messages['menu.logout']}"
+                        execute="@this" render="@form"
+                        oncomplete="socialLogout();" />
+                </div>
+            </h:form>
+        </h:panelGroup>
+
+        <rich:popupPanel id="loginPanel" autosized="false" modal="true"
+            moveable="false" resizeable="true" followByScroll="false"
+            width="450" height="150"
+            onmaskclick="#{rich:component('loginPanel')}.hide()">
+            <f:facet name="header">
+                <h:outputText value="Simple popup panel" />
+            </f:facet>
+            <f:facet name="controls">
+                <h:outputLink value="#"
+                    onclick="#{rich:component('loginPanel')}.hide(); return false;">X</h:outputLink>
+            </f:facet>
+            <h:panelGrid columns="3" style="padding = 10px">
+            <rich:column></rich:column>
+                <h:outputText value="Login" />
+                <h:inputText />
+                <h:outputText value="sdfgs" />
+                <h:outputText value="Password" />
+                <h:inputText />
+                <h:outputText value="sddddd" />
+            </h:panelGrid>
+            <h:outputLink
+                onclick="#{rich:component('loginPanel')}.hide(event); return false;"
+                value="#">Login
+        </h:outputLink>
+        </rich:popupPanel>
+
+    </ui:define>
+</ui:composition>

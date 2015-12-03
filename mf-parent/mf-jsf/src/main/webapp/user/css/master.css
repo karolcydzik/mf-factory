@@ -1,0 +1,42 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background: white;
+}
+
+#page-container {
+    background: black;
+     margin: auto;
+}
+
+#main-nav {
+    background: pink;
+}
+
+#header {
+    background: blue;
+}
+
+#sidebar-a {
+    background: yellow;
+    float: left;
+}
+
+#content {
+	 margin-right: 20px;
+    background: green;
+/*     float: right; */
+}
+
+#footer {
+    clear: right;
+    background: orange;
+}
+
+#main-nav {
+    background: yelow;
+}
+
+.hidden {
+    display: none;
+}

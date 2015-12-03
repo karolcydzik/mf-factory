@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+
+	<head>
+<title>JSF Tutorial!</title>
+	</head>
+	<body>
+		<h:form>
+			<h3>Using JSF outcome</h3>
+			<h:commandButton action="home2" value="home2 bezposrednio" />
+			<h:commandButton action="#{navigationController.moveToHome2}"
+				value="Home2 Nawigator" />
+			<h:commandButton action="#{navigationController.moveToPage1}"
+				value="Page1" />
+		</h:form>
+		#{helloWorld.message}
+		<br>to jest cos nowego</br>
+        ${pageContext.request.contextPath}
+        no i co
+        #{pageContext.request.contextPath}
+        #{request.contextPath}
+		<br> to jest class name: #{counterFacade.findById(1).className}</br>
+		<br> to jest counter id: #{counterFacade.findById(1).counterId}</br>
+		<br> start kroku drugiego; </br>
+<!-- 		<p:inputText id="classname" -->
+<!-- 			value="#{counterFacade.findById(1).className}" label="Class Name" /> -->
+		to jest koniec kroku drugiego
+		<!-- 	</br> -->
+		<!-- 	<p:inputText id="counterId" -->
+		<!-- 		value="#{counterFacade.findById(1).counterId}" label="Counter Id" /> -->
+		<!-- 	</br> -->
+
+
+		<h:inputText value="#{order.amount}" label="nazwa pola" />
+		to jest w rich faces.
+
+
+	</body>
+</html>

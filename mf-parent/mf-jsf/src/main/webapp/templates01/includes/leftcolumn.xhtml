@@ -1,0 +1,87 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:a4j="http://richfaces.org/a4j" 
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <rich:panel>
+        <p>
+            <b>JSF 2 and RichFaces 4:</b>
+        </p>
+    </rich:panel>
+    <h:form id="select">
+        <rich:collapsiblePanel header="header name" switchType="client">
+            <h:panelGrid columns="1">
+                <h:column>
+                    <a4j:outputPanel id="statePanel" layout="block">
+                        <h:selectOneMenu value="#{searchBean.stateId}" valueChangeListener="#{searchBean.changedState}">
+                            <f:selectItem itemValue="#{null}" itemLabel="Cały kraj" />
+                            <f:selectItems value="#{searchFacade.states}" var="state" itemLabel="#{state.name}" itemValue="#{state.id}" />
+                            <a4j:ajax event="valueChange" render="cityPanel, agglomerationPanel, districtPanel" execute="@this" />
+                        </h:selectOneMenu>
+                    </a4j:outputPanel>
+
+                    <a4j:outputPanel id="cityPanel" layout="block">
+                        <c:if test="#{searchBean.stateId != null}">
+                            <h:selectOneMenu value="#{searchBean.cityId}" valueChangeListener="#{searchBean.changedCity}">
+                                <f:selectItems value="#{searchFacade.findCitiesByState(1)}" var="city" itemLabel="#{city.name}" itemValue="#{city.id}" />
+                                <a4j:ajax event="valueChange" render="agglomerationPanel, districtPanel" execute="@this" />
+                            </h:selectOneMenu>
+                        </c:if>
+                    </a4j:outputPanel>
+                    <a4j:outputPanel id="agglomerationPanel" layout="block">
+                        <c:if test="#{searchBean.cityId != null and searchBean.cityId &lt; 0}">
+                            <h:selectOneMenu value="#{searchBean.agglomerationCityId}" valueChangeListener="#{searchBean.changedAgglomeration}">
+                                <f:selectItem itemValue="#{null}" itemLabel="Cała aglomeracja" />
+                                <f:selectItems value="#{searchFacade.findCitiesInAgglomeration(searchBean.cityId)}" var="city" itemLabel="#{city.name}" itemValue="#{city.id}" />
+                                <a4j:ajax event="valueChange" render="districtPanel" execute="@this" />
+                            </h:selectOneMenu>
+                        </c:if>
+                    </a4j:outputPanel>
+                    <a4j:outputPanel id="districtPanel" layout="block">
+                        <c:if test="#{searchBean.cityId != null}">
+                            <h:selectOneMenu value="#{searchBean.districtId}" valueChangeListener="#{searchBean.changedDistrict}">
+                                <f:selectItem itemValue="#{null}" itemLabel="Całe miasto" />
+                                <f:selectItems value="#{searchFacade.findDistrictsByCity(searchBean.cityId)}" var="district" itemLabel="#{district.name}"
+                                    itemValue="#{district.id}" />
+                            </h:selectOneMenu>
+                        </c:if>
+                    </a4j:outputPanel>
+                </h:column>
+            </h:panelGrid>
+        </rich:collapsiblePanel>
+        <rich:collapsiblePanel header="Overview" switchType="client">
+            <h:panelGrid columns="1">
+                <h:column>
+                    <h:outputText value="Select Countries: " />
+                    <h:selectManyCheckbox value="India" layout="pageDirection">
+                        <f:selectItem itemLabel="India" itemValue="India" />
+                        <f:selectItem itemLabel="China" itemValue="China" />
+                        <f:selectItem itemLabel="Germany" itemValue="Germany" />
+                        <f:selectItem itemLabel="USA" itemValue="USA" />
+                    </h:selectManyCheckbox>
+                </h:column>
+            </h:panelGrid>
+        </rich:collapsiblePanel>
+
+        <rich:collapsiblePanel header="Overview" switchType="client">
+            <h:panelGrid columns="1">
+                <h:column>
+                    <h:outputText value="Select Countries: " />
+                    <h:selectManyCheckbox value="India" layout="pageDirection">
+                        <f:selectItem itemLabel="India" itemValue="India" />
+                        <f:selectItem itemLabel="China" itemValue="China" />
+                        <f:selectItem itemLabel="Germany" itemValue="Germany" />
+                        <f:selectItem itemLabel="USA" itemValue="USA" />
+                    </h:selectManyCheckbox>
+                </h:column>
+            </h:panelGrid>
+        </rich:collapsiblePanel>
+        <h:column>
+            <h:commandButton value="Submit" action="#{selectManyCheckBoxBean.submit}" />
+        </h:column>
+    </h:form>
+</ui:composition>

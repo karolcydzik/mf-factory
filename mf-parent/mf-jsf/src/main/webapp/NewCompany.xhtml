@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:h="http://java.sun.com/jsf/html" 
+    xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:a4j="http://richfaces.org/a4j">
+
+<h:form id="newCompany">
+<h:messages/>
+	<h:panelGrid columns="3">
+        <h:outputText value="Nazwa skrocona:" />
+        <h:inputText label="Name" id="name" value="#{companyBean.company.name}" />
+        <br />
+        <h:outputText value="Nazwa pełna:" />
+        <h:inputText label="Name" id="fullname" value="#{companyBean.company.fullName}" />
+        <br />
+        <h:outputText value="Ulica i numer:" />
+        <h:inputText label="Name" id="streetAndNr" value="#{companyBean.company.streetAndNr}" />
+        <br />
+        <h:outputText value="Miasto:" />
+        <h:inputText label="Name" id="cityId" value="#{companyBean.company.cityId}" />
+        <br />
+        <h:outputText value="Dzielnica:" />
+        <h:inputText label="Name" id="districtId" value="#{companyBean.company.districtId}" />
+        <br />
+        <h:outputText value="Tel. Kom.:" />
+        <h:inputText label="Name" id="mobile" value="#{companyBean.company.mobile}" />
+        <br />
+        <h:outputText value="Tel. Stacjonarny:" />
+        <h:inputText label="Name" id="phone" value="#{companyBean.company.phone}" />
+        <br />
+        <h:outputText value="Email:" />
+        <h:inputText label="Name" id="email" value="#{companyBean.company.email}" />
+        <br />
+        <h:outputText value="Adres strony WWW:" />
+        <h:inputText label="Name" id="www" value="#{companyBean.company.www}" />
+        <br />
+        <h:commandButton value="Ajax Validate1" action="#{companyFacade.createOrUpdate(companyBean.company)}" />
+        
+    </h:panelGrid>
+</h:form>
+</html>

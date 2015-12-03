@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:richx="http://richfaces.org/richx">
+
+    <h:outputLabel
+        value="This is confirmation page."></h:outputLabel>
+<p/>
+    <c:set var="confirmation" value="#{userBean.confirmUser(param.key)}" />
+    <c:choose>
+        <c:when test="${confirmation == 1}"> User has been confirmed.</c:when>
+        <c:otherwise>User is not confirmed.</c:otherwise>
+    </c:choose>
+</ui:composition>

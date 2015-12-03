@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="myApp01" ng-init="countries=[{locale:'en-US',name:'United States'},
+		{locale:'en-GB',name:'United Kingdom'},{locale:'en-FR',name:'France'}]">
+<head>
+<script src="js/angular.min.js"></script>
+<script src="js/main01.js"></script>
+</head>
+<body>
+	<div>
+		<input type="text" ng-model="name" placeholder="Enter a name here">
+		<h1>Hello, {{ name }}!</h1>
+	</div>
+	<div ng-controller="PersonController">
+		<input type="text" ng-model="person.firstName" placeholder="Enter first name"> <input type="text" ng-model="person.sureName" placeholder="Enter sure name">
+		<h1>Hello, {{ person.firstName +" / " + person.sureName }}!</h1>
+		<h1>
+			Hello span, <span ng-bind="person.firstName"></span>!
+		</h1>
+	</div>
+	<div ng-controller="StudentController">
+		Enter first name: <input type="text" ng-model="student.firstName"><br> Enter last name: <input type="text" ng-model="student.lastName"><br>
+		<h1>Hello, {{ students.name +" / " + students.id+" / " + students.ord }}!</h1>
+		<br> You are entering: {{student.fullName() | uppercase | lowercase}}
+	</div>
+	<div ng-controller="CitiesController">
+	<p>List of cities:</p>
+	<ol>
+		<li ng-repeat="city in cities">{{ 'City: ' + city.Name + ' / ' +  city.RollNo + ' / ' + city.Percentage }}</li>
+	</ol>
+	</div>
+	<div ng-controller="CitiesJsonController">
+	<p>List of cities from json:</p>
+	<ol>
+		<li ng-repeat="city in cities">{{ 'City: ' + city.name + ' / ' +  city.id + ' / ' + city.ord }}</li>
+	</ol>
+	</div>
+	<p>List of Countries with locale:</p>
+	<ol>
+		<li ng-repeat="country in countries">{{ 'Country: ' + country.name + ', Locale: ' + country.locale }}</li>
+	</ol>
+	<p>Total click: {{ clickCounter }}</p>
+	</td>
+	<button ng-click="clickCounter = clickCounter + 1">Click Me!</button>
+</body>
+</html>

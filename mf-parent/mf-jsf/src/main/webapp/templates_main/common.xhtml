@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:a4j="http://richfaces.org/a4j" xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:rich="http://richfaces.org/rich">
+
+<h:head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>IN ADMIN PANEL | Powered by INDEZINER</title>
+	<c:set var="url" value="#{request.contextPath}" />
+
+	<link rel="stylesheet" type="text/css" href="${url}/templates_main/css/style.css" />
+	<script type="text/javascript" src="${url}/templates_main/js/clockp.js"></script>
+	<script type="text/javascript" src="${url}/templates_main/js/clockh.js"></script>
+	<script type="text/javascript" src="${url}/templates_main/js/jquery.min.js"></script>
+	<script type="text/javascript" src="${url}/templates_main/js/ddaccordion.js"></script>
+	<script type="text/javascript" src="${url}/templates_main/js/jconfirmaction.jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="${url}/templates_main/js/niceforms.js"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="${url}/templates_main/css/niceforms-default.css" />
+
+</h:head>
+<h:body>
+	<div id="main_container">
+
+		<div class="header">
+			<div class="logo">
+				<a href="#"><img src="images/logo.gif" alt="" title="" border="0" /></a>
+			</div>
+
+			<div class="right_header">
+				Welcome Admin, <a href="#">Visit site</a> | <a href="#" class="messages">(3) Messages</a> | <a href="#" class="logout">Logout</a>
+			</div>
+			<div id="clock_a"></div>
+		</div>
+
+		<div class="main_content">
+			<ui:insert name="menu_panel">
+				<div class="menu_panel">
+					<ui:include src="menu_top.xhtml" />
+				</div>
+			</ui:insert>
+			<div class="center_content">
+				<div>
+					<ui:insert name="left_content">
+						<div class="menu_left_panel">
+							<ui:include src="menu_left.xhtml" />
+						</div>
+					</ui:insert>
+				</div>
+				<ui:insert name="right_content">
+					<ui:include src="center_content.xhtml" />
+				</ui:insert>
+			</div>
+			<!--end of main content-->
+		</div>
+		<ui:include src="footer.xhtml" />
+	</div>
+</h:body>
+</html>

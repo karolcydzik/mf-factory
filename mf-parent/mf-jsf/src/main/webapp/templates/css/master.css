@@ -1,0 +1,42 @@
+html, body {
+    margin: 20;
+    padding: 20;
+}
+
+#page-container {
+    width: 100;
+/*     width: 760px; */
+    margin: auto;
+    background: red;
+}
+
+#main-nav {
+    background: red;
+    height: 50px;
+}
+
+#header {
+    background: blue;
+    height: 50px;
+}
+
+#sidebar-a {
+    width: 160px;
+    float: left;
+    background: darkgreen;
+}
+
+#sidebar-b {
+    width: 160px;
+    float: right;
+    background: darkgreen;
+}
+
+#content {
+    background: green;
+}
+
+#footer {
+    background: orange;
+    height: 66px;
+}

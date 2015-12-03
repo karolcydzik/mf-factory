@@ -1,0 +1,29 @@
+#page-container {
+	background: black;
+}
+
+#headerBar {
+	background: pink;
+}
+
+#leftMenuBar {
+	background: grey;
+	margin: auto;
+	width: 180px;
+	position: absolute;
+	top: 4;
+	left: 4;
+}
+
+#topSearchBar {
+	background: red;
+	max-width: 200px;
+}
+
+#searchResultBar {
+	background: yellow;
+}
+
+#footer {
+	background: blue;
+}

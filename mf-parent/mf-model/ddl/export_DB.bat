@@ -1,0 +1,1 @@
+"c:\Program Files (x86)\MySQL\MySQL Workbench CE 6.1.6\"mysqldump.exe -u mpfactory -pszafir123 mpfactory > "c:\Users\Karol\workspaces\mpfactory01\mf-parent\mf-model\ddl\mpfactory.sql"

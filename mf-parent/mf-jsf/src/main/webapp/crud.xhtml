@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich">
+
+<h:head>
+	<title>crud functionality</title>
+</h:head>
+
+<body>
+	<h:messages />
+	<f:view>
+
+		<h:form id="frm">
+			<rich:panel header="Departments" style="width:750px">
+				<rich:dataTable onRowMouseOver="this.style.backgroundColor='#B5CEFD'"
+					onRowMouseOut="this.style.backgroundColor='#{org.richfaces.SKIN.tableBackgroundColor}'" onRowClick="this.style.backgroundColor='#F1F1F1'"
+					rows="10" width="100%" id="tbl" value="#{companyBean.allCompanies}" var="d">
+					<rich:column>
+						<f:facet name="header">
+							<h:outputText value="ID" />
+						</f:facet>
+						<h:outputText value="#{d.id}" />
+					</rich:column>
+					<rich:column width="230px">
+						<f:facet name="header">
+							<h:outputText value="Name" />
+						</f:facet>
+						<h:outputText value="#{d.name}" />
+					</rich:column>
+					<rich:column width="230px">
+						<f:facet name="header">
+							<h:outputText value="Full name" />
+						</f:facet>
+						<h:outputText value="#{d.fullName}" />
+					</rich:column>
+					<rich:column width="230px">
+						<f:facet name="header">
+							<h:outputText value="streetAndNr" />
+						</f:facet>
+						<h:outputText value="#{d.streetAndNr}" />
+					</rich:column>
+					<rich:column width="230px">
+						<f:facet name="header">
+							<h:outputText value="cityId" />
+						</f:facet>
+						<h:outputText value="#{d.cityId}" />
+					</rich:column>
+					<rich:column width="230px">
+						<f:facet name="header">
+							<h:outputText value="districtId" />
+						</f:facet>
+						<h:outputText value="#{d.districtId}" />
+					</rich:column>
+					<rich:column width="230px">
+						<f:facet name="header">
+							<h:outputText value="mobile" />
+						</f:facet>
+						<h:outputText value="#{d.mobile}" />
+					</rich:column>
+					<rich:column width="230px">
+						<f:facet name="header">
+							<h:outputText value="phone" />
+						</f:facet>
+						<h:outputText value="#{d.phone}" />
+					</rich:column>
+					<rich:column width="230px">
+						<f:facet name="header">
+							<h:outputText value="email" />
+						</f:facet>
+						<h:outputText value="#{d.email}" />
+					</rich:column>
+					<rich:column width="230px">
+						<f:facet name="header">
+							<h:outputText value="www" />
+						</f:facet>
+						<h:outputText value="#{d.www}" />
+					</rich:column>
+					<rich:column style="text-align:center">
+						<f:facet name="header">
+							<h:outputText value="Edit2" />
+						</f:facet>
+						<h:commandLink reRender="pnl" action="#{companyBean.editAction}" value="edit2">
+							<f:setPropertyActionListener target="#{companyBean.company}" value="#{d}" />
+						</h:commandLink>
+					</rich:column>
+
+					<f:facet name="footer">
+					</f:facet>
+
+				</rich:dataTable>
+			</rich:panel>
+			<br />
+
+			<rich:popupPanel id="confirmPane" autosized="true">
+            Are you sure you want to delete the row?
+            <a4j:commandButton value="Cancel" onclick="#{rich:component('confirmPane')}.hide(); return false;" />
+				<a4j:commandButton value="Delete" onclick="remove(); return false;" />
+			</rich:popupPanel>
+
+		</h:form>
+	</f:view>
+</body>
+</html>
+

@@ -1,0 +1,28 @@
+<!doctype html>
+<html ng-app="appCity">
+<head>
+<script src="js/angular.min.js"></script>
+<script src="js/city.js"></script>
+</head>
+<body>
+    <div>
+        <input type="text" ng-model="name" placeholder="Enter a name here">
+        <h1>Hello, {{ name }}!</h1>
+    </div>
+    <div ng-controller="CityController">
+           <input type="text" ng-model="ecity.name" placeholder="Name" value="{{}}"/><br>
+           <input type="text" ng-model="ecity.id" placeholder="id"/><br>
+           <input type="text" ng-model="ecity.ord"  placeholder="ord"/>
+                     
+      
+    
+    <p>List of cities from json:</p>
+    <div ng-repeat="city in cities">
+            <div>
+                {{ 'City: ' + city.name + ' / ' +  city.id + ' / ' + city.ord }}
+                <button class="btn" ng-click="getCity(city)">Edit</button> 
+             </div>
+        </div>
+    </div>
+</body>
+</html>

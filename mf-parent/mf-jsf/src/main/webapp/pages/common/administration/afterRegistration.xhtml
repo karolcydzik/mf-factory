@@ -1,0 +1,30 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:s="http://jboss.com/products/seam/taglib" 
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core" 
+    xmlns:h="http://java.sun.com/jsf/html" 
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a4j="http://richfaces.org/a4j" 
+    xmlns:richx="http://richfaces.org/richx">
+
+    <h:form>
+        <h:outputLabel value="You has been registered succesfuly!"></h:outputLabel>
+        <h:outputLabel value="#{param.key}"></h:outputLabel>
+        <h:outputLabel value="Next try"></h:outputLabel>
+        <h:outputLabel value="#{userBean.confirmationString}"></h:outputLabel>
+        <p/>
+        <a href="url(#{pages/common/administration/confrimation.xhtml})">
+            <span>click on this link0</span>
+        </a>
+        <p/>
+        <a href="#{request.contextPath}/pages/common/administration/confrimation.xhtml?key=#{userBean.confirmationString}">
+            <span>click on this link1</span>
+        </a>
+        <p/>
+        <a href="javascript:window.location.href=window.location.href">
+            <span>click on this link2</span>
+        </a>
+        <h:messages></h:messages>
+    </h:form> 
+</ui:composition>

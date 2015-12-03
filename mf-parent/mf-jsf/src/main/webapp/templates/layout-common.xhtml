@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>JSF common!</title>
+	<script type="text/javascript" src="lib/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="lib/js/jquery.layout-latest.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('body').layout({
+				applyDemoStyles : true
+			});
+		});
+	</script>
+</h:head>
+<h:body>
+	<div class="ui-layout-center">
+		Center
+		<h:inputText value="Hello World!" />
+		<ui:insert name="content">
+			<ui:include src="/templates/contents.xhtml" />
+		</ui:insert>
+	</div>
+	<div class="ui-layout-north">
+		North
+		<div style="border-width: 2px; border-color: green; border-style: solid;">
+			<ui:insert name="header">
+				<ui:include src="/templates/header.xhtml" />
+			</ui:insert>
+		</div>
+		<br />
+	</div>
+	<div class="ui-layout-south">
+		South
+		<ui:insert name="footer">
+			<ui:include src="/templates/footer.xhtml" />
+		</ui:insert>
+	</div>
+	<div class="ui-layout-east">East</div>
+	<div class="ui-layout-west">West</div>
+</h:body>
+</html>

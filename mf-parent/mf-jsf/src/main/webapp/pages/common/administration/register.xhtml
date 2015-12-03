@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<ui:composition>
+	<h:form id="newUser">
+		<rich:graphValidator value="#{userBean}" id="userVal">
+			<rich:panel header="Rejestracja" style="width:650px;margin:auto">
+				<rich:messages for="userVal" />
+				<h:panelGrid columns="3">
+					<h:outputText value="Nick:" />
+					<h:inputText label="Nick" id="nick" value="#{userBean.nick}" />
+					<rich:message for="nick" />
+
+					<h:outputText value="Email:" />
+					<h:inputText label="Email" id="email" value="#{userBean.email}" />
+					<rich:message for="email" />
+
+					<h:outputText value="Password:" />
+					<h:inputSecret id="password" value="#{userBean.password}"
+						styleClass="reg-table-input" />
+					<rich:message for="password" />
+
+					<h:outputText value="Password again:" />
+					<h:inputSecret required="true" id="passwordConfirm"
+						value="#{userBean.passwordConfirm}" styleClass="reg-table-input" />
+					<rich:message for="passwordConfirm" />
+				</h:panelGrid>
+				<h:panelGrid columns="4" styleClass="user-prefs-button">
+					<h:panelGroup layout="block">
+						<h:commandButton action="#{userBean.saveUser}" value="Save" />
+					</h:panelGroup>
+					<h:panelGroup layout="block">
+						<h:commandButton action="#{userBean.cancelEditUser}"
+							value="Cancel" immediate="true" />
+					</h:panelGroup>
+                    <h:panelGroup layout="block">
+                        <h:commandButton action="#{administrationController.nextStep('LOGIN')}"
+                            value="Go to login" immediate="true" reRender = "content"/>
+                    </h:panelGroup>
+				</h:panelGrid>
+			</rich:panel>
+		</rich:graphValidator>
+	</h:form>
+
+</ui:composition>
+</html>
