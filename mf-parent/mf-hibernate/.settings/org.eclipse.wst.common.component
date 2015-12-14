@@ -2,5 +2,7 @@
     <wb-module deploy-name="mf-hibernate">
         <wb-resource deploy-path="/" source-path="/src/main/java"/>
         <wb-resource deploy-path="/" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/" source-path="/src/test/resources/META-INF"/>
+        <wb-resource deploy-path="/" source-path="/src/main/META-INF"/>
     </wb-module>
 </project-modules>

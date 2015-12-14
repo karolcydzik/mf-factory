@@ -1,7 +1,5 @@
 package com.omn.mpfactory.restfull.controller;
 
-import static org.junit.Assert.*;
-
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -10,21 +8,22 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 
-
 import org.codehaus.jettison.json.JSONObject;
+import org.junit.Ignore;
 //import org.json.JSONObject;
 import org.junit.Test;
 
 public class MpfactoryControllerTest {
 
 	@Test
+	@Ignore
 	public void testGetCitiesJson() {
 		 String string = "";
 	        try {
 	 
 	            // Step1: Let's 1st read file from fileSystem
 	            InputStream crunchifyInputStream = new FileInputStream(
-	                    "/Users/<username>/Documents/crunchify-git/JSONFile.txt");
+	                    "src/test/resources/jsonFile.txt");
 	            InputStreamReader crunchifyReader = new InputStreamReader(crunchifyInputStream);
 	            BufferedReader br = new BufferedReader(crunchifyReader);
 	            String line;
