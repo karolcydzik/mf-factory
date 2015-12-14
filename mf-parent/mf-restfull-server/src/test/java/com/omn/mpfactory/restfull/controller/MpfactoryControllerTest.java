@@ -10,7 +10,6 @@ import java.net.URLConnection;
 
 import org.codehaus.jettison.json.JSONObject;
 import org.junit.Ignore;
-//import org.json.JSONObject;
 import org.junit.Test;
 
 public class MpfactoryControllerTest {
